@@ -19,7 +19,7 @@ function Base() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
           displacementScale={0.01}
@@ -48,7 +48,7 @@ function Earth() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} envMap={specMap} />
       </mesh>
@@ -66,7 +66,7 @@ function Moon() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} />
       </mesh>
@@ -86,7 +86,7 @@ function Mars() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} normalMap={normalMap} />
       </mesh>
@@ -102,7 +102,7 @@ function Jupiter() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} />
       </mesh>
@@ -118,7 +118,7 @@ function Neptune() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} />
       </mesh>
@@ -134,7 +134,7 @@ function Pluto() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} />
       </mesh>
@@ -150,7 +150,7 @@ function Sun() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} />
       </mesh>
@@ -166,7 +166,7 @@ function Mercury() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} />
       </mesh>
@@ -182,7 +182,7 @@ function Venus() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+      <mesh position={[0, 0, 0]} ref={meshRef} scale={1}>
         <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} />
       </mesh>
@@ -217,7 +217,7 @@ function Planet({ name }: { name: PlanetType }) {
   }, [name]);
 
   return (
-    <Canvas style={{ height: '60vh' }}>
+    <Canvas style={{ height: '100vh', position: 'absolute', top: '0%', zIndex: '-1' }}>
       <Suspense fallback={null}>{SelectedPlanet}</Suspense>
     </Canvas>
   );
