@@ -1,36 +1,58 @@
-import { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Suspense, useRef, useState } from 'react';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { TextureLoader } from 'three/src/loaders/TextureLoader';
+
+function getName(type: string) {
+  return `/textures/block/PavingStones092_1K_${type}.jpg`;
+}
 
 function Box() {
-  // This reference will give us direct access to the mesh
   const mesh = useRef<any>();
-  // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) => (mesh.current.rotation.x += 0.01));
-  // Return view, these are regular three.js elements expressed in JSX
+
+  const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
+    getName('Color'),
+    getName('Displacement'),
+    getName('Normal'),
+    getName('Roughness'),
+    getName('AmbientOcclusion'),
+  ]);
+  // const colorMap = useLoader(TextureLoader, '/textures/matcaps/2.png');
+
+  useFrame((state, delta) => (mesh.current.rotation.y += 0.01));
+
   return (
-    <mesh
-      position={[-1.2, 0, 0]}
-      ref={mesh}
-      scale={active ? 1.5 : 1}
-      onClick={() => setActive(!active)}
-      onPointerOver={() => setHover(true)}
-      onPointerOut={() => setHover(false)}
-    >
-      <sphereBufferGeometry args={[1, 30, 30]} attach="geometry" />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'red'} wireframe />
-    </mesh>
+    <>
+      <ambientLight intensity={0.3} />
+      <mesh
+        position={[-1.2, 0, 0]}
+        ref={mesh}
+        scale={active ? 1.5 : 1}
+        onClick={() => setActive(!active)}
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+      >
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshStandardMaterial
+          displacementScale={0.01}
+          map={colorMap}
+          displacementMap={displacementMap}
+          normalMap={normalMap}
+          roughnessMap={roughnessMap}
+          aoMap={aoMap}
+        />
+      </mesh>
+    </>
   );
 }
 
 function Planet() {
   return (
     <Canvas style={{ height: '100vh' }}>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Box />
+      <Suspense fallback={null}>
+        <Box />
+      </Suspense>
     </Canvas>
   );
 }
