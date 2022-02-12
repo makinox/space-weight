@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           </p>
         </section>
         <Form />
-        <Planet name="moon" />
+        <Planet name="venus" />
       </main>
 
       <footer>
