@@ -1,42 +1,28 @@
-import { Suspense, useRef, useState } from 'react';
+import { Suspense, useRef } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 
-function getName(type: string) {
-  return `/textures/block/PavingStones092_1K_${type}.jpg`;
-}
+function Base() {
+  const meshRef = useRef<any>();
 
-function Box() {
-  const mesh = useRef<any>();
-  const [hovered, setHover] = useState(false);
-  const [active, setActive] = useState(false);
-
-  const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
-    getName('Color'),
-    getName('Displacement'),
-    getName('Normal'),
-    getName('Roughness'),
-    getName('AmbientOcclusion'),
+  const [map, displacementMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
+    '/textures/block/PavingStones092_1K_Color.jpg',
+    '/textures/block/PavingStones092_1K_Displacement.jpg',
+    '/textures/block/PavingStones092_1K_Normal.jpg',
+    '/textures/block/PavingStones092_1K_Roughness.jpg',
+    '/textures/block/PavingStones092_1K_AmbientOcclusion.jpg',
   ]);
-  // const colorMap = useLoader(TextureLoader, '/textures/matcaps/2.png');
 
-  useFrame((state, delta) => (mesh.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.01));
 
   return (
     <>
       <ambientLight intensity={0.3} />
-      <mesh
-        position={[-1.2, 0, 0]}
-        ref={mesh}
-        scale={active ? 1.5 : 1}
-        onClick={() => setActive(!active)}
-        onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
-      >
-        <sphereGeometry args={[1, 32, 32]} />
+      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+        <sphereGeometry args={[2, 32, 32]} />
         <meshStandardMaterial
           displacementScale={0.01}
-          map={colorMap}
+          map={map}
           displacementMap={displacementMap}
           normalMap={normalMap}
           roughnessMap={roughnessMap}
@@ -47,11 +33,62 @@ function Box() {
   );
 }
 
-function Planet() {
+function Earth() {
+  const meshRef = useRef<any>();
+
+  const [map, bumpMap, specMap] = useLoader(TextureLoader, [
+    '/textures/earth/earthmap1k.jpg',
+    '/textures/earth/earthbump1k.jpg',
+    '/textures/earth/earthspec1k.jpg',
+  ]);
+
+  useFrame(() => (meshRef.current.rotation.y += 0.01));
+
   return (
-    <Canvas style={{ height: '100vh' }}>
+    <>
+      <ambientLight intensity={0.3} />
+      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+        <sphereGeometry args={[2, 32, 32]} />
+        <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} envMap={specMap} />
+      </mesh>
+    </>
+  );
+}
+
+function Moon() {
+  const meshRef = useRef<any>();
+
+  const [map, bumpMap] = useLoader(TextureLoader, ['/textures/moon/moonmap1k.jpg', '/textures/moon/moonbump1k.jpg']);
+
+  useFrame(() => (meshRef.current.rotation.y += 0.01));
+
+  return (
+    <>
+      <ambientLight intensity={0.3} />
+      <mesh position={[-1.2, 0, 0]} ref={meshRef} scale={1}>
+        <sphereGeometry args={[2, 32, 32]} />
+        <meshStandardMaterial displacementScale={0.01} map={map} bumpMap={bumpMap} />
+      </mesh>
+    </>
+  );
+}
+
+function Planet({ name }: { name: 'earth' | 'moon' }) {
+  const SelectedPlanet = () => {
+    switch (name) {
+      case 'earth':
+        return <Earth />;
+      case 'moon':
+        return <Moon />;
+      default:
+        return <Base />;
+    }
+  };
+
+  return (
+    <Canvas style={{ height: '60vh' }}>
       <Suspense fallback={null}>
-        <Box />
+        <SelectedPlanet />
       </Suspense>
     </Canvas>
   );
