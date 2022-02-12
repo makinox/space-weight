@@ -4,7 +4,9 @@ import { useState } from 'react';
 import Head from 'next/head';
 
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import { PlanetType } from './constants';
+import Hero from './layout/Hero/Hero';
 import Form from './layout/Form';
 
 const Planet = dynamic(() => import('./layout/Planet'), {
@@ -25,30 +27,12 @@ const Home: NextPage = () => {
 
       <main>
         <Navbar />
-        <section>
-          <h1>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
-        </section>
-        <section>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, distinctio eum cum magnam similique consequatur, doloribus molestias et
-            nemo necessitatibus blanditiis laboriosam? Voluptate, voluptatum esse. Mollitia reiciendis ut ullam accusamus.
-          </p>
-        </section>
-        <section>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, distinctio eum cum magnam similique consequatur, doloribus molestias et
-            nemo necessitatibus blanditiis laboriosam? Voluptate, voluptatum esse. Mollitia reiciendis ut ullam accusamus.
-          </p>
-        </section>
+        <Hero planetName={formData.planet} />
         <Form formData={formData} setSetFormData={setSetFormData} />
         <Planet name={formData.planet} />
       </main>
 
-      <footer>
-        <span>foo</span>
-      </footer>
+      <Footer />
     </div>
   );
 };

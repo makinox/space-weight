@@ -1,7 +1,6 @@
 import { FaTwitterSquare, FaLinkedin, FaHome } from 'react-icons/fa';
 import { FluidContainer, TopBar } from '@makinox/makinox-ui';
 import { NavbarSection } from './Navbar.styles';
-import Link from 'next/link';
 
 export default function Navbar() {
   return (
