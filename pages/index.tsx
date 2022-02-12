@@ -1,6 +1,9 @@
 import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import Head from 'next/head';
+
+import { PlanetType } from './constants';
 import Form from './layout/Form';
 
 const Planet = dynamic(() => import('./layout/Planet'), {
@@ -9,6 +12,8 @@ const Planet = dynamic(() => import('./layout/Planet'), {
 });
 
 const Home: NextPage = () => {
+  const [formData, setSetFormData] = useState<{ planet: PlanetType; weight: string }>({ planet: 'earth', weight: '' });
+
   return (
     <div>
       <Head>
@@ -35,8 +40,8 @@ const Home: NextPage = () => {
             nemo necessitatibus blanditiis laboriosam? Voluptate, voluptatum esse. Mollitia reiciendis ut ullam accusamus.
           </p>
         </section>
-        <Form />
-        <Planet name="venus" />
+        <Form formData={formData} setSetFormData={setSetFormData} />
+        <Planet name={formData.planet} />
       </main>
 
       <footer>

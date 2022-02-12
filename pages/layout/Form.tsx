@@ -1,17 +1,30 @@
-import { FormEvent } from 'react';
-import { useInputValue } from '../../hooks/useInputValue';
+import { Dispatch, FormEvent, SetStateAction } from 'react';
+import { PLANETS, PlanetType } from '../constants';
 
-export default function Form() {
-  const WeigthInput = useInputValue({});
-
+export default function Form({
+  formData,
+  setSetFormData,
+}: {
+  formData: {
+    planet: PlanetType;
+    weight: string;
+  };
+  setSetFormData: Dispatch<
+    SetStateAction<{
+      planet: PlanetType;
+      weight: string;
+    }>
+  >;
+}) {
   function handleSubmit(element: FormEvent<HTMLFormElement>) {
     element.preventDefault();
     const target = element.target as typeof element.target & {
       weight: { value: string };
-      planet: { value: string };
+      planet: { value: PlanetType };
     };
-    const weight = target.weight.value;
+    const weight = target.weight?.value || '';
     const planet = target.planet.value;
+    setSetFormData({ weight, planet });
     console.log({ weight, planet });
   }
 
@@ -19,15 +32,17 @@ export default function Form() {
     <form onSubmit={handleSubmit}>
       <div>
         <span>Tu peso en la</span>
-        <select name="planet">
-          <option value="tierra">tierra</option>
-          <option value="luna">luna</option>
-          <option value="marte">marte</option>
+        <select name="planet" defaultValue={formData.planet}>
+          {PLANETS.map((planet) => (
+            <option key={planet} value={planet}>
+              {planet}
+            </option>
+          ))}
         </select>
       </div>
       <div>
         <span>peso</span>
-        <input type="text" name="weight" />
+        <input type="number" name="weight" />
       </div>
     </form>
   );

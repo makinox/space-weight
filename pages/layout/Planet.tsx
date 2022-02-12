@@ -1,6 +1,7 @@
-import { Suspense, useRef } from 'react';
+import { Suspense, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
+import { PlanetType } from '../constants';
 
 function Base() {
   const meshRef = useRef<any>();
@@ -189,8 +190,9 @@ function Venus() {
   );
 }
 
-function Planet({ name }: { name: 'earth' | 'moon' | 'mars' | 'jupiter' | 'neptune' | 'pluto' | 'venus' | 'mercury' | 'sun' }) {
-  const SelectedPlanet = () => {
+function Planet({ name }: { name: PlanetType }) {
+  const SelectedPlanet = useMemo(() => {
+    console.log({ name });
     switch (name) {
       case 'earth':
         return <Earth />;
@@ -213,13 +215,11 @@ function Planet({ name }: { name: 'earth' | 'moon' | 'mars' | 'jupiter' | 'neptu
       default:
         return <Base />;
     }
-  };
+  }, [name]);
 
   return (
     <Canvas style={{ height: '60vh' }}>
-      <Suspense fallback={null}>
-        <SelectedPlanet />
-      </Suspense>
+      <Suspense fallback={null}>{SelectedPlanet}</Suspense>
     </Canvas>
   );
 }
