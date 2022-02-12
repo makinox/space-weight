@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import { PlanetType } from '../constants';
+import { PlanetType } from '../public/constants';
 import Hero from '../layout/Hero/Hero';
 import Form from '../layout/Form/Form';
 

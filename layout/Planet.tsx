@@ -1,7 +1,7 @@
 import { Suspense, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
-import { PlanetType } from '../constants';
+import { PlanetType } from '../public/constants';
 
 function Base() {
   const meshRef = useRef<any>();

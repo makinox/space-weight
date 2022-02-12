@@ -1,6 +1,6 @@
 import { FluidContainer } from '@makinox/makinox-ui';
 import { Dispatch, FormEvent, SetStateAction } from 'react';
-import { PLANETS, PlanetType } from '../../constants';
+import { PLANETS, PlanetType } from '../../public/constants';
 import { FormSection } from './Form.styles';
 
 export default function Form({

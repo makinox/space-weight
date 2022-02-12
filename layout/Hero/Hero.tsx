@@ -1,7 +1,7 @@
 import { FluidContainer } from '@makinox/makinox-ui';
 
 import { HeroSection } from './Hero.styles';
-import { PlanetType } from '../../constants';
+import { PlanetType } from '../../public/constants';
 
 export default function Hero({ planetName }: { planetName: PlanetType }) {
   return (
