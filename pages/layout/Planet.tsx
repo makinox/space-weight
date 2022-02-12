@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 
-function Box(props: any) {
+function Box() {
   // This reference will give us direct access to the mesh
   const mesh = useRef<any>();
   // Set up state for the hovered and active state
@@ -12,15 +12,15 @@ function Box(props: any) {
   // Return view, these are regular three.js elements expressed in JSX
   return (
     <mesh
-      {...props}
+      position={[-1.2, 0, 0]}
       ref={mesh}
       scale={active ? 1.5 : 1}
-      onClick={(event) => setActive(!active)}
-      onPointerOver={(event) => setHover(true)}
-      onPointerOut={(event) => setHover(false)}
+      onClick={() => setActive(!active)}
+      onPointerOver={() => setHover(true)}
+      onPointerOut={() => setHover(false)}
     >
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+      <sphereBufferGeometry args={[1, 30, 30]} attach="geometry" />
+      <meshStandardMaterial color={hovered ? 'hotpink' : 'red'} wireframe />
     </mesh>
   );
 }
@@ -30,8 +30,7 @@ function Planet() {
     <Canvas style={{ height: '100vh' }}>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
+      <Box />
     </Canvas>
   );
 }
