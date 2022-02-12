@@ -192,7 +192,6 @@ function Venus() {
 
 function Planet({ name }: { name: PlanetType }) {
   const SelectedPlanet = useMemo(() => {
-    console.log({ name });
     switch (name) {
       case 'earth':
         return <Earth />;

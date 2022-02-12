@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import Head from 'next/head';
 
+import Navbar from './components/Navbar/Navbar';
 import { PlanetType } from './constants';
 import Form from './layout/Form';
 
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
+        <Navbar />
         <section>
           <h1>
             Welcome to <a href="https://nextjs.org">Next.js!</a>

@@ -25,7 +25,6 @@ export default function Form({
     const weight = target.weight?.value || '';
     const planet = target.planet.value;
     setSetFormData({ weight, planet });
-    console.log({ weight, planet });
   }
 
   return (
