@@ -3,13 +3,13 @@ import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import Head from 'next/head';
 
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import { PlanetType } from './constants';
-import Hero from './layout/Hero/Hero';
-import Form from './layout/Form/Form';
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
+import { PlanetType } from '../constants';
+import Hero from '../layout/Hero/Hero';
+import Form from '../layout/Form/Form';
 
-const Planet = dynamic(() => import('./layout/Planet'), {
+const Planet = dynamic(() => import('../layout/Planet'), {
   ssr: false,
   loading: () => <div>loading...</div>,
 });
