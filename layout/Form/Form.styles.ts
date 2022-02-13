@@ -1,7 +1,7 @@
 import { css } from '@stitches/core';
 
 export const FormSection = css({
-  height: '71vh',
+  height: '75.7vh',
 
   '& form': {
     marginTop: '80px',

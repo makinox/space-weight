@@ -1,10 +1,10 @@
 import { FaTwitterSquare, FaLinkedin, FaHome } from 'react-icons/fa';
+import { HeaderSection, NavbarSection } from './Navbar.styles';
 import { FluidContainer, TopBar } from '@makinox/makinox-ui';
-import { NavbarSection } from './Navbar.styles';
 
 export default function Navbar() {
   return (
-    <header className={TopBar()}>
+    <header className={`${TopBar()} ${HeaderSection()}`}>
       <nav className={`flex justify-between items-center ${FluidContainer()} ${NavbarSection()}`}>
         <div className="flex items-center">
           <span>Space weight</span>

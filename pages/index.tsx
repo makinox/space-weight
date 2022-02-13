@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Head from 'next/head';
 
 import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
 import { PlanetType } from '../public/constants';
 import Hero from '../layout/Hero/Hero';
 import Form from '../layout/Form/Form';
@@ -32,7 +31,7 @@ const Home: NextPage = () => {
         <Planet name={formData.planet} />
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
