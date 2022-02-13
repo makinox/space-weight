@@ -4,7 +4,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import Image from 'next/image';
 
 import { PlanetType } from '../../public/constants';
-import { PlanetCanvas, PlanetStars } from './Planet.styles';
+import { PlanetBlur, PlanetCanvas, PlanetStars } from './Planet.styles';
 
 function Base() {
   const meshRef = useRef<any>();
@@ -227,6 +227,7 @@ function Planet({ name }: { name: PlanetType }) {
       <Canvas className={PlanetCanvas()}>
         <Suspense fallback={null}>{SelectedPlanet}</Suspense>
       </Canvas>
+      <div className={PlanetBlur()} />
     </>
   );
 }
