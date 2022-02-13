@@ -14,7 +14,8 @@ const Planet = dynamic(() => import('../layout/Planet/Planet'), {
 });
 
 const Home: NextPage = () => {
-  const [formData, setSetFormData] = useState<{ planet: PlanetType; weight: string }>({ planet: 'earth', weight: '' });
+  const [planet, setPlanet] = useState<PlanetType>('earth');
+  const [weight, setWeight] = useState('');
 
   return (
     <div>
@@ -26,9 +27,9 @@ const Home: NextPage = () => {
 
       <main>
         <Navbar />
-        <Hero planetName={formData.planet} />
-        <Form formData={formData} setSetFormData={setSetFormData} />
-        <Planet name={formData.planet} />
+        <Hero planetName={planet} />
+        <Form planet={planet} weight={weight} setPlanet={setPlanet} setWeight={setWeight} />
+        <Planet name={planet} />
       </main>
 
       {/* <Footer /> */}

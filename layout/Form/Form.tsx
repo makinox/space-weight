@@ -4,29 +4,19 @@ import { PLANETS, PlanetType } from '../../public/constants';
 import { FormSection } from './Form.styles';
 
 export default function Form({
-  formData,
-  setSetFormData,
+  planet,
+  weight,
+  setWeight,
+  setPlanet,
 }: {
-  formData: {
-    planet: PlanetType;
-    weight: string;
-  };
-  setSetFormData: Dispatch<
-    SetStateAction<{
-      planet: PlanetType;
-      weight: string;
-    }>
-  >;
+  planet: string;
+  weight: string;
+  setWeight: Dispatch<SetStateAction<string>>;
+  setPlanet: Dispatch<SetStateAction<PlanetType>>;
 }) {
   function handleSubmit(element: FormEvent<HTMLFormElement>) {
     element.preventDefault();
-    const target = element.target as typeof element.target & {
-      weight: { value: string };
-      planet: { value: PlanetType };
-    };
-    const weight = target.weight?.value || '';
-    const planet = target.planet.value;
-    setSetFormData({ weight, planet });
+    console.log({ weight, planet });
   }
 
   return (
@@ -34,7 +24,7 @@ export default function Form({
       <form onSubmit={handleSubmit} className="flex justify-evenly">
         <div className="flex flex-col items-center">
           <span>Selecciona uno</span>
-          <select name="planet" defaultValue={formData.planet}>
+          <select name="planet" defaultValue={planet} onChange={(e) => setPlanet(e.target.value as PlanetType)}>
             {PLANETS.map((planet) => (
               <option key={planet} value={planet}>
                 {planet}
@@ -44,7 +34,7 @@ export default function Form({
         </div>
         <div className="flex flex-col items-center">
           <span>Ingresa tu peso</span>
-          <input type="number" name="weight" />
+          <input type="number" name="weight" onChange={(e) => setWeight(e.target.value)} />
         </div>
       </form>
     </section>
