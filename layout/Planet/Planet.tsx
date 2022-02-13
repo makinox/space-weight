@@ -1,7 +1,10 @@
 import { Suspense, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
-import { PlanetType } from '../public/constants';
+import Image from 'next/image';
+
+import { PlanetType } from '../../public/constants';
+import { PlanetCanvas, PlanetStars } from './Planet.styles';
 
 function Base() {
   const meshRef = useRef<any>();
@@ -217,9 +220,14 @@ function Planet({ name }: { name: PlanetType }) {
   }, [name]);
 
   return (
-    <Canvas style={{ height: '100vh', position: 'absolute', top: '0%', zIndex: '-1' }}>
-      <Suspense fallback={null}>{SelectedPlanet}</Suspense>
-    </Canvas>
+    <>
+      <div className={PlanetStars()}>
+        <Image src="/images/stars.jpg" alt="Stars image" layout="fill" objectFit="cover" objectPosition="center" quality={100} />
+      </div>
+      <Canvas className={PlanetCanvas()}>
+        <Suspense fallback={null}>{SelectedPlanet}</Suspense>
+      </Canvas>
+    </>
   );
 }
 

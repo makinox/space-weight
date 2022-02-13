@@ -9,7 +9,7 @@ import { PlanetType } from '../public/constants';
 import Hero from '../layout/Hero/Hero';
 import Form from '../layout/Form/Form';
 
-const Planet = dynamic(() => import('../layout/Planet'), {
+const Planet = dynamic(() => import('../layout/Planet/Planet'), {
   ssr: false,
   loading: () => <div>loading...</div>,
 });
