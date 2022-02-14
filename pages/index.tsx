@@ -7,6 +7,7 @@ import Head from 'next/head';
 
 import Navbar from '../components/Navbar/Navbar';
 import { PlanetObject, PLANETS } from '../public/constants';
+import Answer from '../layout/Answer/Answer';
 import Hero from '../layout/Hero/Hero';
 import Form from '../layout/Form/Form';
 
@@ -37,6 +38,7 @@ const Home: NextPage = () => {
         <Navbar />
         <Hero planetInfo={planet} />
         <Form planet={planet} weight={weight} setPlanet={setPlanet} setWeight={setWeight} />
+        <Answer planet={planet} weight={weight} />
         <Planet name={planet.objectValue} />
       </main>
 

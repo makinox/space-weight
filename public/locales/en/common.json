@@ -4,7 +4,9 @@
   "hero-title": "Find out how much you weigh {{system}} {{planet}}",
 
   "form-planets": "Select one",
-  "form-weight": "Enter your weight",
+  "form-weight": "Enter your weight in kg",
+  "form-answer": "Your weight would be {{answer}} kg",
+  "form-sun": "You would burn",
 
   "object-prefix1": "the planet",
   "object-prefix2": "the",

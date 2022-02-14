@@ -35,6 +35,6 @@ main {
   position: relative;
 }
 
-option {
+select {
   text-transform: capitalize;
 }

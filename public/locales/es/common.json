@@ -4,7 +4,10 @@
   "hero-title": "Descubre cuanto pesas {{system}} {{planet}}",
 
   "form-planets": "Selecciona uno",
-  "form-weight": "Ingresa tu peso",
+  "form-weight": "Ingresa tu peso en kg",
+
+  "form-answer": "Tu peso seria de {{answer}} kg",
+  "form-sun": "Te quemarías",
 
   "object-prefix1": "el planeta",
   "object-prefix2": "la",
