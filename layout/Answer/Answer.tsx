@@ -6,9 +6,6 @@ import { AnswerArticle } from './Answer.styled';
 export default function Answer({ planet, weight }: { planet: PlanetObject; weight: string }) {
   const { t } = useTranslation('common');
 
-  console.log(parseInt(weight, 10));
-  console.log(planet);
-
   const RenderAnswer = () => {
     if (!weight.length) {
       return <></>;

@@ -20,7 +20,6 @@ export default function Form({
 
   function handleSubmit(element: FormEvent<HTMLFormElement>) {
     element.preventDefault();
-    console.log({ weight, planet });
   }
 
   return (
