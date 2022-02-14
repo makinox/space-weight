@@ -1,0 +1,22 @@
+{
+  "head-description": "What is my weight on {{planet}}",
+
+  "hero-title": "Find out how much you weigh {{system}} {{planet}}",
+
+  "form-planets": "Select one",
+  "form-weight": "Enter your weight",
+
+  "object-prefix1": "the planet",
+  "object-prefix2": "the",
+  "object-prefix3": "",
+  "object-prefix4": "",
+  "object-earth": "earth",
+  "object-moon": "moon",
+  "object-mars": "mars",
+  "object-jupiter": "jupiter",
+  "object-neptune": "neptune",
+  "object-pluto": "pluto",
+  "object-venus": "venus",
+  "object-mercury": "mercury",
+  "object-sun": "sun"
+}

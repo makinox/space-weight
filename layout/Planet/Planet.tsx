@@ -17,7 +17,7 @@ function Base() {
     '/textures/block/PavingStones092_1K_AmbientOcclusion.jpg',
   ]);
 
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -47,7 +47,7 @@ function Earth() {
     '/textures/earth/earthspec1k.jpg',
   ]);
 
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -66,7 +66,7 @@ function Moon() {
 
   const [map, bumpMap] = useLoader(TextureLoader, ['/textures/moon/moonmap1k.jpg', '/textures/moon/moonbump1k.jpg']);
 
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -87,7 +87,7 @@ function Mars() {
     '/textures/mars/marsbump1k.jpg',
     '/textures/mars/marsnormal1k.jpg',
   ]);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -104,7 +104,7 @@ function Mars() {
 function Jupiter() {
   const meshRef = useRef<any>();
   const [map] = useLoader(TextureLoader, ['/textures/jupiter/jupiter1k.jpg']);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -121,7 +121,7 @@ function Jupiter() {
 function Neptune() {
   const meshRef = useRef<any>();
   const [map] = useLoader(TextureLoader, ['/textures/neptune/neptunemap.jpg']);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -138,7 +138,7 @@ function Neptune() {
 function Pluto() {
   const meshRef = useRef<any>();
   const [map, bumpMap] = useLoader(TextureLoader, ['/textures/pluto/plutomap1k.jpg', '/textures/pluto/plutobump1k.jpg']);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -155,7 +155,7 @@ function Pluto() {
 function Sun() {
   const meshRef = useRef<any>();
   const [map] = useLoader(TextureLoader, ['/textures/sun/sunmap.jpg']);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -171,7 +171,7 @@ function Sun() {
 function Mercury() {
   const meshRef = useRef<any>();
   const [map, bumpMap] = useLoader(TextureLoader, ['/textures/mercury/mercurymap.jpg', '/textures/mercury/mercurybump.jpg']);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
@@ -188,7 +188,7 @@ function Mercury() {
 function Venus() {
   const meshRef = useRef<any>();
   const [map, bumpMap] = useLoader(TextureLoader, ['/textures/venus/venusmap.jpg', '/textures/venus/venusbump.jpg']);
-  useFrame(() => (meshRef.current.rotation.y += 0.01));
+  useFrame(() => (meshRef.current.rotation.y += 0.002));
 
   return (
     <>
