@@ -24,8 +24,7 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>
-          Space weight -{' '}
-          {t('head-description', { planet: `${t(planet.objectPrefix)} ${t(planet.objectName)}`, system: planet.objectPrefix }).toLowerCase()}
+          Space weight - {t('head-description', { planet: `${t(planet.objectPrefix)} ${t(planet.objectName)}`, system: planet.objectPrefix })}
         </title>
         <meta
           name="description"
