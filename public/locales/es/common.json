@@ -9,17 +9,18 @@
   "form-answer": "Tu peso seria de {{answer}} kg",
   "form-sun": "Te quemarías",
 
+  "object-prefix0": "planeta",
   "object-prefix1": "el planeta",
   "object-prefix2": "la",
   "object-prefix3": "el",
   "object-prefix4": "",
-  "object-earth": "tierra",
-  "object-moon": "luna",
-  "object-mars": "marte",
-  "object-jupiter": "jupiter",
-  "object-neptune": "neptuno",
-  "object-pluto": "pluto",
-  "object-venus": "venus",
-  "object-mercury": "mercurio",
-  "object-sun": "sol"
+  "system-earth": "tierra",
+  "system-moon": "luna",
+  "system-mars": "marte",
+  "system-jupiter": "jupiter",
+  "system-neptune": "neptuno",
+  "system-pluto": "pluto",
+  "system-venus": "venus",
+  "system-mercury": "mercurio",
+  "system-sun": "sol"
 }

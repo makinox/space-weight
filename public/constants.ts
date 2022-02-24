@@ -2,6 +2,7 @@ export type PlanetType = 'earth' | 'moon' | 'mars' | 'jupiter' | 'neptune' | 'pl
 
 export type PlanetObject = {
   objectValue: PlanetType;
+  objectValueEs: string;
   objectName: string;
   objectPrefix: string;
   objectFactor: number;
@@ -10,55 +11,64 @@ export type PlanetObject = {
 export const PLANETS: Array<PlanetObject> = [
   {
     objectValue: 'earth',
-    objectName: 'object-earth',
+    objectValueEs: 'tierra',
+    objectName: 'system-earth',
     objectPrefix: 'object-prefix1',
     objectFactor: 1,
   },
   {
     objectValue: 'moon',
-    objectName: 'object-moon',
+    objectValueEs: 'luna',
+    objectName: 'system-moon',
     objectPrefix: 'object-prefix2',
     objectFactor: 0.165392066891,
   },
   {
     objectValue: 'mars',
-    objectName: 'object-mars',
+    objectValueEs: 'marte',
+    objectName: 'system-mars',
     objectPrefix: 'object-prefix1',
     objectFactor: 0.37840318140104,
   },
   {
     objectValue: 'jupiter',
-    objectName: 'object-jupiter',
+    objectValueEs: 'jupiter',
+    objectName: 'system-jupiter',
     objectPrefix: 'object-prefix1',
     objectFactor: 2.5277862751096,
   },
   {
     objectValue: 'neptune',
-    objectName: 'object-neptune',
+    objectValueEs: 'neptuno',
+    objectName: 'system-neptune',
     objectPrefix: 'object-prefix1',
     objectFactor: 1.136942999898,
   },
   {
     objectValue: 'pluto',
-    objectName: 'object-pluto',
+    objectValueEs: 'pluto',
+    objectName: 'system-pluto',
     objectPrefix: 'object-prefix4',
     objectFactor: 0.063220148873254,
   },
   {
     objectValue: 'venus',
-    objectName: 'object-venus',
+    objectValueEs: 'venus',
+    objectName: 'system-venus',
     objectPrefix: 'object-prefix1',
     objectFactor: 0.90445600081574,
   },
   {
     objectValue: 'mercury',
-    objectName: 'object-mercury',
+    objectValueEs: 'mercurio',
+    objectName: 'system-mercury',
     objectPrefix: 'object-prefix1',
     objectFactor: 0.37728153359845,
   },
   {
     objectValue: 'sun',
-    objectName: 'object-sun',
+    objectValueEs: 'sol',
+    objectName: 'system-sun',
     objectPrefix: 'object-prefix3',
     objectFactor: 1,
   },

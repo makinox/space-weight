@@ -4,10 +4,10 @@ import { useTranslation } from 'next-i18next';
 
 import { PlanetObject, PLANETS } from '../../public/constants';
 import { FormSection } from './Form.styles';
+import { useRouter } from 'next/router';
 
 export default function Form({
   planet,
-  weight,
   setWeight,
   setPlanet,
 }: {
@@ -17,6 +17,7 @@ export default function Form({
   setPlanet: Dispatch<SetStateAction<PlanetObject>>;
 }) {
   const { t } = useTranslation('common');
+  const router = useRouter();
 
   function handleSubmit(element: FormEvent<HTMLFormElement>) {
     element.preventDefault();
@@ -32,6 +33,7 @@ export default function Form({
             defaultValue={t(planet.objectName) as string}
             onChange={(e) => {
               const planetIndex = PLANETS.findIndex((elm) => elm.objectValue === e.target.value);
+              router.push(`/${t('object-prefix0')}/${t(PLANETS[planetIndex].objectName)}`);
               setPlanet(PLANETS[planetIndex]);
             }}
           >

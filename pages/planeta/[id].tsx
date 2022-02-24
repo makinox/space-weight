@@ -5,17 +5,17 @@ import Home from '../../components/Home/Home';
 
 export async function getStaticPaths() {
   const paths = PLANETS.map((planet) => ({
-    params: { id: planet.objectValue },
+    params: { id: planet.objectValueEs },
   }));
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params, locale }: { params: { id: PlanetObject['objectValue'] }; locale: string }) {
-  return { props: { id: params.id, ...(await serverSideTranslations(locale, ['common'])) } };
+export async function getStaticProps({ params }: { params: { id: PlanetObject['objectName'] } }) {
+  return { props: { id: params.id, ...(await serverSideTranslations('es', ['common'])) } };
 }
 
-function Planet({ id }: { id: PlanetObject['objectValue'] }) {
-  const defaultPlanet = PLANETS.find((planet) => planet.objectValue === id);
+function Planet({ id }: { id: PlanetObject['objectName'] }) {
+  const defaultPlanet = PLANETS.find((planet) => planet.objectValueEs === id);
   return <Home defaultPlanet={defaultPlanet} />;
 }
 
